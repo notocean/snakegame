@@ -4,8 +4,8 @@ class Collision{
     }
 
     update(){
-        for(let i = 0; i <= this.playController.snake.snakePostition.length - 1; i++){
-            if (i % 5 == 0){
+        for(let i = 0; i <= this.playController.snake.snakeLength * this.playController.snake.distanceBody; i++){
+            if (i % this.playController.snake.distanceBody == 0){
                 //xét va chạm với thân snake
                 if (i >= 30 && this.isCollideCircle(this.playController.snake.snakePostition[i], this.playController.rSnake, this.playController.snake.snakePostition[0], this.playController.rSnake))
                     this.playController.isLose = true;
@@ -17,12 +17,13 @@ class Collision{
         //xét va chạm với food
         if (this.isCollideCircle(this.playController.snake.snakePostition[0], this.playController.rSnake, {x: this.playController.food.x, y: this.playController.food.y}, this.playController.food.size)){
             this.playController.food.createFood();
-            if(this.playController.snake.snakeLength < 10){
-                this.playController.snake.addSnakeBody(this.playController.snake.snakePostition.length, 0.5);
-                this.playController.snake.snakeLength += 0.5;
-                this.playController.screen.scoreGame.score += 1;
+            if(this.playController.snake.snakeLength < 12){
+                this.playController.snake.addSnakeBody(this.playController.snake.snakePostition.length, 1);
+                this.playController.snake.snakeLength += 1;
             }
-                
+            this.playController.screen.scoreGame.score += 1;
+            if (this.playController.snake.snakeLength == 12 && this.playController.snake.distanceBody > 1 && this.playController.screen.scoreGame.score % 4 == 0)
+                this.playController.snake.changeSpeed();
         }
         //xét va chạm với block random
         for(let i = 0; i < 3; i++){

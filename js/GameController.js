@@ -33,8 +33,6 @@ class GameController{
             this.startController.settingBtn = null;
             this.startController.settingDialog = null;
             this.startController = null;
-            delete this.startController;
-            console.log(this.startController);
             this.playController = new PlayController(this);
         }
     }

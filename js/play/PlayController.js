@@ -5,7 +5,7 @@ class PlayController {
         this.SCREEN_WIDTH = this.gameController.SCREEN_WIDTH;
         this.SCREEN_HEIGHT = this.gameController.SCREEN_HEIGHT;
 
-        this.SNAKE_SPEED = this.SCREEN_WIDTH / 300;
+        this.SNAKE_SPEED = Math.floor(this.SCREEN_WIDTH / 300);
         this.BLOCK_SPEED = this.SCREEN_WIDTH / 400;
 
         this.BG_WIDTH = 480;
@@ -33,7 +33,6 @@ class PlayController {
         this.isLose = false;
         //vòng lặp tạo nên game
         this.loop();
-        
     }
     
     loop(){
