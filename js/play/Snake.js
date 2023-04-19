@@ -35,6 +35,39 @@ class Snake {
             this.snakeColor = '#00FFF8';
         else this.snakeColor = 'yellow';
     }
+    
+    // //lắng nghe sự kiện nhấn phím
+    // listenKeyEvent(){
+    //     document.addEventListener('keydown', (event) => {
+    //         this.processKeyDown(event.code);
+    //     });
+    //     document.addEventListener('keyup', (event) => {
+    //         this.processKeyUp(event.code);
+    //     });
+    // }
+
+    // //xử lí sự kiện nhấn xuống
+    // processKeyDown(code){
+    //     if (this.isPress.press)
+    //         return;
+    //     switch(code){
+    //         case 'Space':
+    //             this.updateSpeed += 1;
+    //             break;
+    //     }
+    //     this.isPress.press = true;
+    // }
+
+    // processKeyUp(code){
+    //     if (!this.isPress.press)
+    //         return;
+    //     switch(code){
+    //         case 'Space':
+    //             this.updateSpeed = this.playController.SNAKE_SPEED;
+    //             break;
+    //     }
+    //     this.isPress.press = false;
+    // }
 
     //thay doi toc do
     changeSpeed(){

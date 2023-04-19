@@ -45,6 +45,7 @@ class Music{
                 this.musicIcon.innerHTML = "<img src=\"img/music.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
                 this.isMute = false;
                 this.data = true;
+                this.settingDialog.startController.gameController.bgMusic.play();
                 this.data_json = JSON.stringify(this.data);
                 localStorage.setItem('snakeMusic', this.data_json);
             }
@@ -52,6 +53,7 @@ class Music{
                 this.musicIcon.innerHTML = "<img src=\"img/mutemusic.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
                 this.isMute = true;
                 this.data = false;
+                this.settingDialog.startController.gameController.bgMusic.pause();
                 this.data_json = JSON.stringify(this.data);
                 localStorage.setItem('snakeMusic', this.data_json);
             }
