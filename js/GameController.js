@@ -1,14 +1,15 @@
 class GameController{
     constructor(){
+        this.bgMusic = document.createElement('audio');
+            document.body.appendChild(this.bgMusic);
+            this.bgMusic.src = 'music/bgMusic.mp3';
+            this.bgMusic.loop = 'true';
+            
         this.data_json = localStorage.getItem('snakeMusic');
         this.data = true;
         if (this.data_json != null)
             this.data = JSON.parse(this.data_json);
         if (this.data){
-            this.bgMusic = document.createElement('audio');
-            document.body.appendChild(this.bgMusic);
-            this.bgMusic.src = 'music/bgMusic.mp3';
-            this.bgMusic.loop = 'true';
             this.bgMusic.autoplay = 'true';
         }
 

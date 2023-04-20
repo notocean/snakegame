@@ -2,15 +2,36 @@ class RandomBox{
     constructor(playController){
         this.playController = playController;
 
+        this.number = 6;
+
+        //đọc level
+        this.data_json = localStorage.getItem('snakeLevel');
+        this.data = "1";
+        if (this.data_json != null)
+            this.data = JSON.parse(this.data_json);
+
+        if (this.data == "1"){
+            this.minSizeRatio = 0.6 / 5;
+            this.maxSizeRatio = 1.2 / 5;
+        }
+        else if (this.data == "2"){
+            this.minSizeRatio = 1.2 / 5;
+            this.maxSizeRatio = 2 / 5;
+        }
+        else {
+            this.minSizeRatio = 2 / 5;
+            this.maxSizeRatio = 3 / 5;
+        }
+
         //khởi tạo mảng các block ngẫu nhiên
         this.blockPosition = [];
         this.createBlocks();
     }
 
     createBlocks(){
-        for(let i = 0; i < 4; i++){
-            //kích thước block từ 1/5 đến 3/5 chiều cao màn hình
-            let size = Math.floor(Math.random() * this.playController.SCREEN_HEIGHT * 2 / 5) + this.playController.SCREEN_HEIGHT / 5;
+        for(let i = 0; i < this.number; i++){
+            //kích thước block từ min đến max
+            let size = Math.floor(Math.random() * this.playController.SCREEN_HEIGHT * (this.maxSizeRatio - this.minSizeRatio)) + this.playController.SCREEN_HEIGHT * this.minSizeRatio;
             //vị trí
             let y = Math.floor(Math.random() * (this.playController.SCREEN_HEIGHT - size)) + size / 2;
             let x = this.playController.screen.left + this.playController.SCREEN_WIDTH + size;
@@ -29,11 +50,11 @@ class RandomBox{
 
     update(){
         if (this.blockPosition[0].x + this.blockPosition[0].size / 2 < this.playController.screen.left){
-            //kích thước block từ 1/5 đến 3/5 chiều cao màn hình
-            let size = Math.floor(Math.random() * this.playController.SCREEN_HEIGHT * 2 / 5) + this.playController.SCREEN_HEIGHT / 5;
+            //kích thước block từ min đến max
+            let size = Math.floor(Math.random() * this.playController.SCREEN_HEIGHT * (this.maxSizeRatio - this.minSizeRatio)) + this.playController.SCREEN_HEIGHT * this.minSizeRatio;
             //vị trí
             let y = Math.floor(Math.random() * (this.playController.SCREEN_HEIGHT - size)) + size / 2;
-            let x = this.blockPosition[3].x + (this.blockPosition[3].size + size) * 3 / 2;
+            let x = this.blockPosition[this.number-1].x + (this.blockPosition[this.number-1].size + size) * 3 / 2;
             //thêm vào cuối
             this.blockPosition.push({
                 size: size,
@@ -47,7 +68,7 @@ class RandomBox{
 
     draw(){
         //vẽ block random
-        for(let i = 0; i < 4; i++)
+        for(let i = 0; i < this.number; i++)
             this.drawBlock(this.blockPosition[i]);
     }
 

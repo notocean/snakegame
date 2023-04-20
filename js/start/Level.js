@@ -32,7 +32,7 @@ class Level{
         this.level3.style.display = "inline-block";
         this.level3.style.float = 'right';
         this.level3.innerHTML = "3";
-        this.level3.style.width = '10%';
+        this.level3.style.width = '8.5%';
 
         this.radioInput3 = document.createElement('input');
         this.level.appendChild(this.radioInput3);
@@ -52,7 +52,7 @@ class Level{
         this.level2.style.display = "inline-block";
         this.level2.style.float = 'right';
         this.level2.innerHTML = "2";
-        this.level2.style.width = '10%';
+        this.level2.style.width = '8.5%';
 
         this.radioInput2 = document.createElement('input');
         this.level.appendChild(this.radioInput2);
@@ -72,7 +72,7 @@ class Level{
         this.level1.style.display = "inline-block";
         this.level1.style.float = 'right';
         this.level1.innerHTML = "1";
-        this.level1.style.width = '10%';
+        this.level1.style.width = '8.5%';
 
         this.radioInput1 = document.createElement('input');
         this.level.appendChild(this.radioInput1);

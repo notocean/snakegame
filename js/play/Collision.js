@@ -26,7 +26,7 @@ class Collision{
                 this.playController.snake.changeSpeed();
         }
         //xét va chạm với block random
-        for(let i = 0; i < 3; i++){
+        for(let i = 0; i < this.playController.enemy.randomBox.number-1; i++){
             let x = this.playController.enemy.randomBox.blockPosition[i].x;
             let y = this.playController.enemy.randomBox.blockPosition[i].y;
             let size = this.playController.enemy.randomBox.blockPosition[i].size;
