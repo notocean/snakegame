@@ -2,6 +2,9 @@ class RandomBox{
     constructor(playController){
         this.playController = playController;
 
+        this.iAnim = 1;
+        this.incPoint = 1;
+
         this.number = 6;
 
         //đọc level
@@ -69,13 +72,24 @@ class RandomBox{
     draw(){
         //vẽ block random
         for(let i = 0; i < this.number; i++)
-            this.drawBlock(this.blockPosition[i]);
+            this.drawBlock(this.blockPosition[i], this.iAnim);
+        this.iAnim += 0.5 * this.incPoint;
+        if (this.iAnim > 9.5){
+            this.incPoint = -1;
+        }
+        else if (this.iAnim < 1){
+            this.incPoint = 1;
+        }
     }
 
     //vẽ hình khối với chiều dài, rộng và size
-    drawBlock(block){
+    drawBlock(block, iAnim){
         this.playController.ctx.beginPath();
         this.playController.ctx.fillStyle = 'black';
         this.playController.ctx.fillRect(block.x - block.size / 2 - this.playController.screen.left, block.y - block.size / 2 - this.playController.screen.top, block.size, block.size);
+        let size = block.size / (4 * iAnim);
+        this.playController.ctx.lineWidth = block.size / 20;
+        this.playController.ctx.strokeStyle = '#00A39E';
+        this.playController.ctx.strokeRect(block.x - block.size / 2 + size - this.playController.screen.left, block.y - block.size / 2 + size - this.playController.screen.top, block.size - size * 2, block.size - size * 2);
     }
 }

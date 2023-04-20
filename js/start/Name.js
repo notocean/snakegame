@@ -18,6 +18,7 @@ class Name{
         this.input.style.boxSizing = "border-box";
         this.input.style.height =  height + "px";
         this.input.style.width = width + "px";
+        this.input.placeholder = "name";
         this.input.style.border = "double";
         this.input.style.borderWidth = width / 40 + "px";
         this.input.style.borderRadius = height / 2.5 + "px";
