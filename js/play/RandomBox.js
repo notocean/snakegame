@@ -53,11 +53,16 @@ class RandomBox{
 
     update(){
         if (this.blockPosition[0].x + this.blockPosition[0].size / 2 < this.playController.screen.left){
-            //kích thước block từ min đến max
-            let size = Math.floor(Math.random() * this.playController.SCREEN_HEIGHT * (this.maxSizeRatio - this.minSizeRatio)) + this.playController.SCREEN_HEIGHT * this.minSizeRatio;
+            let size, x, y;
+            while(true){
+                //kích thước block từ min đến max
+            size = Math.floor(Math.random() * this.playController.SCREEN_HEIGHT * (this.maxSizeRatio - this.minSizeRatio)) + this.playController.SCREEN_HEIGHT * this.minSizeRatio;
             //vị trí
-            let y = Math.floor(Math.random() * (this.playController.SCREEN_HEIGHT - size)) + size / 2;
-            let x = this.blockPosition[this.number-1].x + (this.blockPosition[this.number-1].size + size) * 3 / 2;
+            y = Math.floor(Math.random() * (this.playController.SCREEN_HEIGHT - size)) + size / 2;
+            x = this.blockPosition[this.number-1].x + (this.blockPosition[this.number-1].size + size) * 3 / 2;
+            if (!this.playController.collision.isCollideRect({x: this.playController.food.x, y: this.playController.food.y}, this.playController.food.size, {x: x, y: y}, size))
+                break;
+            }
             //thêm vào cuối
             this.blockPosition.push({
                 size: size,
