@@ -35,8 +35,6 @@ class StartController{
         this.playBtn.display();
         this.settingBtn.display();
         this.settingDialog.display();
-        this.ctx.fillStyle = '#f2f2f2';
-        this.ctx.fillRect(0, 0, this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
     }
 }
 

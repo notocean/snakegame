@@ -1,13 +1,14 @@
 class BgStart{
     constructor(startController){
         this.startController = startController;
+
+        this.bg = document.createElement('img');
+        this.bg.src = "img/bgstart.png";
     }
 
     display(){
-        this.bg = document.createElement('img');
-        this.bg.src = "img/bgstart.png";
         //đợi cho ảnh được load
-        setTimeout(() => {
+        if (this.bg.complete){
             this.startController.ctx.drawImage(
                 this.bg,
                 0,
@@ -19,6 +20,9 @@ class BgStart{
                 this.startController.SCREEN_WIDTH,
                 this.startController.SCREEN_HEIGHT + 40
             );
-        }, 100);
+        }
+        else {
+            setTimeout(() => this.display(), 10);
+        }
     }
 }
