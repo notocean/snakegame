@@ -7,6 +7,15 @@ class BgGame{
         this.bg.src = "img/bg.png";
     }
 
+    waitLoadBg(){
+        if (this.bg.complete){
+            
+        }
+        else {
+            setTimeout(() => this.waitLoadBg(), 10);
+        }
+    }
+
     update(){
         //nhân với tỉ số để được tốc độ đọc ảnh
         this.left = this.playController.screen.left * this.playController.BG_WIDTH / this.playController.SCREEN_WIDTH % (this.playController.BG_WIDTH - 41);
@@ -14,6 +23,7 @@ class BgGame{
     }
 
     draw(){
+        this.waitLoadBg();
         this.playController.ctx.drawImage(
             //ảnh
             this.bg,
