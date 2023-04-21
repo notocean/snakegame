@@ -11,10 +11,7 @@ class GameController{
         if (this.data_json != null)
             this.data = JSON.parse(this.data_json);
         if (this.data){
-            this.bgMusic.autoplay = 'true';
-        }
-        else {
-            this.bgMusic.autoplay = 'false';
+            this.bgMusic.addEventListener('canplaythrough', this.bgMusic, false);
         }
 
         this.SCREEN_WIDTH = window.innerWidth;
