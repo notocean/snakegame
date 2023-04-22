@@ -73,8 +73,8 @@ class PlayController {
         this.clearScreen();
         this.screen.draw();
         this.food.draw();
-        this.snake.draw();
         this.enemy.draw();
+        this.snake.draw();
         this.screen.scoreGame.draw();
     }
 

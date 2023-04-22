@@ -30,7 +30,7 @@ class Collision{
             let x = this.playController.enemy.randomBox.blockPosition[i].x;
             let y = this.playController.enemy.randomBox.blockPosition[i].y;
             let size = this.playController.enemy.randomBox.blockPosition[i].size;
-            if (this.isCollideRect(this.playController.snake.snakePostition[0], this.playController.rSnake, {x: x, y: y}, size))
+            if (this.isCollideRect(this.playController.snake.snakePostition[0], this.playController.rSnake, {x: x, y: y}, size) && this.playController.snake.d < 4)
                 this.playController.isLose = true;
         }
     }

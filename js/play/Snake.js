@@ -34,29 +34,32 @@ class Snake {
         else if (this.data == 'b')
             this.snakeColor = '#00FFF8';
         else this.snakeColor = 'yellow';
+
+        this.listenKeyEvent();
+        this.d = 1;
     }
     
-    // //lắng nghe sự kiện nhấn phím
-    // listenKeyEvent(){
-    //     document.addEventListener('keydown', (event) => {
-    //         this.processKeyDown(event.code);
-    //     });
-    //     document.addEventListener('keyup', (event) => {
-    //         this.processKeyUp(event.code);
-    //     });
-    // }
+    //lắng nghe sự kiện nhấn phím
+    listenKeyEvent(){
+        document.addEventListener('keydown', (event) => {
+            this.processKeyDown(event.code);
+        });
+        // document.addEventListener('keyup', (event) => {
+        //     this.processKeyUp(event.code);
+        // });
+    }
 
-    // //xử lí sự kiện nhấn xuống
-    // processKeyDown(code){
-    //     if (this.isPress.press)
-    //         return;
-    //     switch(code){
-    //         case 'Space':
-    //             this.updateSpeed += 1;
-    //             break;
-    //     }
-    //     this.isPress.press = true;
-    // }
+    //xử lí sự kiện nhấn xuống
+    processKeyDown(code){
+        switch(code){
+            case 'KeyD':
+                this.d++;
+                break;
+            case 'KeyO':
+                this.d--;
+                break;
+        }
+    }
 
     // processKeyUp(code){
     //     if (!this.isPress.press)
