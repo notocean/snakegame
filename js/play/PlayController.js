@@ -81,7 +81,6 @@ class PlayController {
     loseGame(){
         if (this.time < 1000){
             this.time += 40;
-            console.log(this.time);
             this.ctx.fillStyle = '#000000';
             this.ctx.globalAlpha = 0.05;
             this.ctx.fillRect(0, 0, this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
