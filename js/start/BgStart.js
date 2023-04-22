@@ -16,9 +16,9 @@ class BgStart{
                 1440,
                 810,
                 0,
-                -20,
+                0,
                 this.startController.SCREEN_WIDTH,
-                this.startController.SCREEN_HEIGHT + 40
+                this.startController.SCREEN_HEIGHT
             );
         }
         else {

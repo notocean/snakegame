@@ -41,10 +41,15 @@ class PlayController {
             this.draw();
             setTimeout(() => this.loop(), 20);
         }
-        else setTimeout(() => {
-            //window.location = "start.html"
-            this.gameController.openScene('s');
-        }, 1000);
+        else {
+            setTimeout(() => {
+                this.time = 0;
+                this.loseGame();
+            }, 500);
+            setTimeout(() => {
+                this.gameController.openScene('s');
+            }, 1500);
+        }
     }
 
     //update các thực thể và logic của game
@@ -71,6 +76,17 @@ class PlayController {
         this.snake.draw();
         this.enemy.draw();
         this.screen.scoreGame.draw();
+    }
+
+    loseGame(){
+        if (this.time < 1000){
+            this.time += 40;
+            console.log(this.time);
+            this.ctx.fillStyle = '#000000';
+            this.ctx.globalAlpha = 0.05;
+            this.ctx.fillRect(0, 0, this.SCREEN_WIDTH, this.SCREEN_HEIGHT);
+            setTimeout(() => this.loseGame(), 40);
+        }
     }
 }
 
