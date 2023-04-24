@@ -2,14 +2,17 @@ class Music{
     constructor(settingDialog){
         this.settingDialog = settingDialog;
 
-        this.isMute = false;
+        this.isMute = true;
 
         this.dialog = this.settingDialog.dialog;
 
-        this.data_json = localStorage.getItem('snakeMusic');
-        this.data = true;
-        if (this.data_json != null)
-            this.data = JSON.parse(this.data_json);
+        // không đọc dữ liệu mà mặc định là tắt
+        // this.data_json = localStorage.getItem('snakeMusic');
+        // this.data = true;
+        // if (this.data_json != null)
+        //     this.data = JSON.parse(this.data_json);
+        // if (this.data)
+        //     this.isMute = false;
     }
 
     display(){
@@ -36,26 +39,27 @@ class Music{
         this.musicIcon.style.borderStyle = "none";
         this.musicIcon.style.marginRight = "50%";
 
-        if (this.data)
-            this.musicIcon.innerHTML = "<img src=\"img/music.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
-        else this.musicIcon.innerHTML = "<img src=\"img/mutemusic.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
+        // if (this.data)
+            //this.musicIcon.innerHTML = "<img src=\"img/music.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
+        // else 
+        this.musicIcon.innerHTML = "<img src=\"img/mutemusic.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
 
         this.musicIcon.addEventListener("click", () => {
             if (this.isMute){
                 this.musicIcon.innerHTML = "<img src=\"img/music.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
                 this.isMute = false;
-                this.data = true;
                 this.settingDialog.startController.gameController.bgMusic.play();
-                this.data_json = JSON.stringify(this.data);
-                localStorage.setItem('snakeMusic', this.data_json);
+                // this.data = true;
+                // this.data_json = JSON.stringify(this.data);
+                // localStorage.setItem('snakeMusic', this.data_json);
             }
             else {
                 this.musicIcon.innerHTML = "<img src=\"img/mutemusic.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
                 this.isMute = true;
-                this.data = false;
                 this.settingDialog.startController.gameController.bgMusic.pause();
-                this.data_json = JSON.stringify(this.data);
-                localStorage.setItem('snakeMusic', this.data_json);
+                // this.data = false;
+                // this.data_json = JSON.stringify(this.data);
+                // localStorage.setItem('snakeMusic', this.data_json);
             }
         });
     }
