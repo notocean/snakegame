@@ -10,8 +10,7 @@ class GameController{
         if (this.data_json != null)
             this.data = JSON.parse(this.data_json);
         if (this.data){
-            console.log(1);
-            this.bgMusic.addEventListener('canplay', this.bgMusic.play(), false);
+            document.addEventListener('mousemove', this.bgMusic.play(), false);
         }
 
         this.SCREEN_WIDTH = window.innerWidth;
