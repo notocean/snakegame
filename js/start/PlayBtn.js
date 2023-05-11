@@ -22,8 +22,14 @@ class PlayBtn{
         this.btn.style.top = this.startController.SCREEN_HEIGHT / 2 + height * 3 + "px";
 
         this.btn.addEventListener("click", () => {
-            //window.location = "play.html";
             this.startController.gameController.openScene('p');
+        });
+
+        this.btn.addEventListener("click", () => {
+            if (this.startController.settingDialog.isOpen){
+                this.startController.settingDialog.dialog.style.zIndex = '-1';
+                this.startController.settingDialog.isOpen = false;
+            }
         });
     }
 }

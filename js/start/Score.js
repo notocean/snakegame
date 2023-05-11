@@ -27,5 +27,12 @@ class Score{
         this.score.style.width = width + "px";
         this.score.style.left = this.startController.SCREEN_WIDTH / 2 - width / 2 + "px";
         this.score.style.top = this.startController.SCREEN_HEIGHT / 2 + height * 1.5 + "px";
+
+        this.score.addEventListener("click", () => {
+            if (this.startController.settingDialog.isOpen){
+                this.startController.settingDialog.dialog.style.zIndex = '-1';
+                this.startController.settingDialog.isOpen = false;
+            }
+        });
     }
 }

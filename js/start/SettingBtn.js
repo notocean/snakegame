@@ -28,5 +28,11 @@ class SettingBtn{
                 this.startController.settingDialog.isOpen = true;
             }
         });
+        this.startController.canvas.addEventListener("click", () => {
+            if (this.startController.settingDialog.isOpen){
+                this.startController.settingDialog.dialog.style.zIndex = '-1';
+                this.startController.settingDialog.isOpen = false;
+            }
+        });
     }
 }

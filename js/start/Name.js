@@ -32,5 +32,12 @@ class Name{
             this.data_json = JSON.stringify(this.data);
             localStorage.setItem('snakeName', this.data_json);
         });
+
+        this.input.addEventListener("click", () => {
+            if (this.startController.settingDialog.isOpen){
+                this.startController.settingDialog.dialog.style.zIndex = '-1';
+                this.startController.settingDialog.isOpen = false;
+            }
+        });
     }
 }
