@@ -13,6 +13,10 @@ class Music{
         //     this.data = JSON.parse(this.data_json);
         // if (this.data)
         //     this.isMute = false;
+        this.bgMusic = document.createElement('audio');
+        document.body.appendChild(this.bgMusic);
+        this.bgMusic.src = 'music/bgMusic.mp3';
+        this.bgMusic.loop = 'true';
     }
 
     display(){
@@ -42,13 +46,13 @@ class Music{
         // if (this.data)
             //this.musicIcon.innerHTML = "<img src=\"img/music.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
         // else 
-        this.musicIcon.innerHTML = "<img src=\"img/mutemusic.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
+        this.musicIcon.innerHTML = "<img src=\"img/mutemusic.png\" width= \'100%\' height=\'100%\'>";
 
         this.musicIcon.addEventListener("click", () => {
             if (this.isMute){
                 this.musicIcon.innerHTML = "<img src=\"img/music.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
                 this.isMute = false;
-                this.settingDialog.startController.gameController.bgMusic.play();
+                this.bgMusic.play();
                 // this.data = true;
                 // this.data_json = JSON.stringify(this.data);
                 // localStorage.setItem('snakeMusic', this.data_json);
@@ -56,7 +60,7 @@ class Music{
             else {
                 this.musicIcon.innerHTML = "<img src=\"img/mutemusic.png\" width= \'" + "100%\'" + " height=\'"  + "100%\'>";
                 this.isMute = true;
-                this.settingDialog.startController.gameController.bgMusic.pause();
+                this.bgMusic.pause();
                 // this.data = false;
                 // this.data_json = JSON.stringify(this.data);
                 // localStorage.setItem('snakeMusic', this.data_json);

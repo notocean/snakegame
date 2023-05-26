@@ -1,10 +1,5 @@
 class GameController{
     constructor(){
-        this.bgMusic = document.createElement('audio');
-        document.body.appendChild(this.bgMusic);
-        this.bgMusic.src = 'music/bgMusic.mp3';
-        this.bgMusic.loop = 'true';
-            
         // mặc định là tắt
         // this.data_json = localStorage.getItem('snakeMusic');
         // this.data = true;
